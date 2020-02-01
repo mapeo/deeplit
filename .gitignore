@@ -1,0 +1,4 @@
+*.sqlite3
+media/
+pretrained_models/
+__pycache__/

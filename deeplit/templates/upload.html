@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="card-content">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="field">
+        <label class="label">escolha o algoritmo...</label>
+        <div class="control">
+          <label class="radio">
+            <input type="radio" checked name="algorithm" value="spleeter:2stems">
+            2 stems
+          </label>
+          <br>
+          <label class="content is-small">
+          vocais/bateria/baixo/outros 
+          </label>
+          <br>
+          <label class="radio">
+            <input type="radio" name="algorithm" value="spleeter:4stems">
+            4 stems
+          </label>
+          <br>
+          <label class="content is-small">
+          vocais (voz cantando)/acompanhamento 
+          </label>
+          <br>
+          <label class="radio">
+            <input type="radio" name="algorithm" value="spleeter:5stems">
+            5 stems
+          </label>
+          <br>
+          <label class="content is-small">
+          vocais/bateria/baixo/piano/outros 
+          </label>
+          <br>
+        </div>
+      </div>
+
+      <div class="field is-link">
+      <label class="label">faça o upload da sua música...</label>
+        <div id="file-js" class="file has-name">
+          <label class="file-label">
+            <input class="file-input" name="uploaded-file" type="file" name="resume">
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                upload...
+              </span>
+            </span>
+            <span class="file-name" style="color: #93949B;">
+              nenhum arquivo escolhido
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="field">
+      <label class="label">tudo pronto?</label>
+        <div class="control">
+          <button type="submit" onclick="sub()" id="submit" disabled class="button is-link is-fullwidth" style="font-size: 20px">spleet!</button>
+        </div>
+      </div>
+    </form>
+    {% if url %}
+    <p>Download file <a href="{{ url }}">{{ url }}</a></p>
+    {% else %}
+    <div class="field">
+    <br>
+        <progress id="progressbar" class="progress is-link" style="display:none" max="100">30%</progress>
+    </div>
+    {% endif %}
+  </div>
+  <script>
+    function sub(){
+      var toggle = document.getElementById("progressbar");
+      if (toggle.style.display === "none") {
+        toggle.style.display = "block";
+      } else {
+        toggle.style.display = "none";
+      }
+    }
+
+    const fileInput = document.querySelector('#file-js input[type=file]');
+    fileInput.onchange = () => {
+      if (fileInput.files.length > 0) {
+        const fileName = document.querySelector('#file-js .file-name');
+        fileName.textContent = fileInput.files[0].name;
+        document.getElementById('submit').disabled = false;
+      }
+    }
+  </script>
+  {% endblock %}

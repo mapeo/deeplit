@@ -1,0 +1,41 @@
+.title {
+  width: 263px;
+  height: 66px;
+  margin: 0 auto;
+  font-family: Roboto Mono;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 56px;
+  line-height: 66px;
+  color: #335EEA
+}
+
+.card {
+  width: 470px;
+  height: 600px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px #D9DCE0;
+  border-radius: 10px;
+}
+
+body {
+  margin-top: 100px
+}
+
+.is-small {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 140.62%;
+  color: #93949B;
+}
+
+.label {
+  font-size: 20px;
+}
+
+.download {
+  align-content: center;
+}
