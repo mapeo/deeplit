@@ -3,12 +3,19 @@
 {% block content %}
 <div class="card-content">
     <label class="label">conversão finalizada!</label>
-    <p>
-        <a href="{{ file }}" class="button is-medium is-link">Baixar</a>
-    </p>
+    <div>
+        <a href="{{ file }}" class="button is-medium is-link">
+            <i class="fas fas-fw fa-download"></i>
+            &nbsp;download
+        </a>
+    </div>
     <br>
-    <p>
-        <a href="/" class="button is-medium is-link is-light">Continuar</a>
-    </p>
+    <div>
+        <label class="label">tem mais arquivos?</label>
+
+        <a href="/" class="button is-medium is-link is-light ml-1">
+            continuar
+        </a>
+    </div>
 </div>
 {% endblock %}
